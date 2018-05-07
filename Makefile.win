@@ -1,0 +1,51 @@
+/***********************************************************************************************
+Created By: Monisha Surana
+Contact Id: monisha.surana1@gmail.com
+CopyRights Reserved @ Monisha Surana
+Date of Creation: 02 - November - 2017
+Date of Last Modification:02 - November - 2017
+
+Programme Brief: Makefile Creation,  all c files were linked with objects file.
+************************************************************************************************/
+
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = quiz_main.o user_info.o analytical_quiz.o communication_quiz.o web_development.o programming_quiz.o
+LINKOBJ  = quiz_main.o user_info.o analytical_quiz.o communication_quiz.o web_development.o programming_quiz.o
+LIBS     = -L"C:/software/Dev-Cpp/MinGW64/lib32" -L"C:/software/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32 -g3
+INCS     = -I"C:/software/Dev-Cpp/MinGW64/include" -I"C:/software/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/software/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/software/Dev-Cpp/MinGW64/include" -I"C:/software/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/software/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/software/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = c_quiz.exe
+CXXFLAGS = $(CXXINCS) -m32 -g3
+CFLAGS   = $(INCS) -m32 -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+quiz_main.o: quiz_main.c
+	$(CC) -c quiz_main.c -o quiz_main.o $(CFLAGS)
+
+user_info.o: user_info.c
+	$(CC) -c user_info.c -o user_info.o $(CFLAGS)
+
+analytical_quiz.o: analytical_quiz.c
+	$(CC) -c analytical_quiz.c -o analytical_quiz.o $(CFLAGS)
+
+communication_quiz.o: communication_quiz.c
+	$(CC) -c communication_quiz.c -o communication_quiz.o $(CFLAGS)
+
+web_development.o: web_development.c
+	$(CC) -c web_development.c -o web_development.o $(CFLAGS)
+
+programming_quiz.o: programming_quiz.c
+	$(CC) -c programming_quiz.c -o programming_quiz.o $(CFLAGS)
