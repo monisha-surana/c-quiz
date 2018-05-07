@@ -32,7 +32,7 @@ Programme Brief: QUIZ COMPETITION Main page
 const char *subject1="Web Development";				/* Subject 1 stores Web Development as subject */
 const char *subject2="Programming in C";			/* Subject 2 stores Programming in C as subject */
 const char *subject3="Analytical Skills";			/* Subject 3 stores Analytical Skills as subject */
-const char *subject4="Communication Skills";		/* Subject 4 stores Communication Skills as subject */
+//const char *subject4="Communication Skills";		/* Subject 4 stores Communication Skills as subject */
 int select_subject;									/* Subject selection */
 
 int answer;	
